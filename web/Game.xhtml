@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="default.css" />  
+        <title>Truco Gaudério - Jogo</title>
+    </h:head>
+    <h:body>
+         <script type="text/javascript">
+            function handleDrop(event, ui) {
+                var droppedCarta = ui.draggable;
+                droppedCarta.fadeOut('fast');
+            }
+           
+        </script>
+        <h:form id="formGame">
+            <!-- Dados Computador -->
+            <div id="panelComputador">
+                 <p:panel id="panelComputadorP" header="Adversário" style="width: 805px;">
+                    <img src="#{loginController.jogoModel.jogadores[0].urlAvatar}" alt="" height="80px;"/>
+                        <h:outputText
+                            value="#{loginController.jogoModel.jogadores[0].nome}" />
+                        <p:separator />
+                </p:panel>
+                 <div id="panelCartasComputador">
+                    <img src="resources/Images/cartaVirada.png"  style="height: 260px;"/>
+                    <img src="resources/Images/cartaVirada.png"  style="height: 260px;"/>
+                    <img src="resources/Images/cartaVirada.png"  style="height: 260px;"/>
+                </div>
+            </div>
+
+            <!-- Dados Jogos - Status -->
+            
+                <div id="panelJogo">
+                    <p:panel id="panelPlacar" header="#{msg.placar_label}" style="width: 265px;float: left;margin: 0px 10px 10px -395px;">
+                        <p:panelGrid style="margin-top:20px">
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="7"></p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="2">Adversário</p:column>
+                                    <p:column>Jogador</p:column>
+                                </p:row>
+
+                            </f:facet>
+                                <p:row>
+                                    <p:column colspan="2">#{loginController.jogoModel.jogadores[0].pontos}</p:column>
+                                    <p:column>#{loginController.jogoModel.jogadores[1].pontos}</p:column>
+                                </p:row>
+                        </p:panelGrid>
+                    </p:panel>
+                    <p:fieldset id="cartasSelecionadas" legend="Cartas utilizadas" >
+                        <p:outputPanel id="dropArea">
+                            <h:outputText value="!!!solte aqui!!!"  style="font-size:24px;" />
+                            <p:dataTable id="dtCartasJogadas" var="cartaModel" value="#{loginController.jogoModel.partida.cartasJogadas}" rendered="#{not empty loginController.jogoModel.partida.cartasJogadas}">
+                                <p:column headerText="-">
+                                    <p:graphicImage name="#{cartaModel.urlImagem}" style="height: 260px;"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:outputPanel>
+                    </p:fieldset>
+                    <p:droppable for="cartasSelecionadas" tolerance="touch" activeStyleClass="ui-state-highlight"  onDrop="handleDrop">
+                    </p:droppable>
+                </div>
+
+            <!-- Dados Jogador -->
+            <div id="panelJogador">
+                    <p:growl id="mensagens" showDetail="true"  autoUpdate="true"/>
+                    <p:panel id="panelJogadorP" header="Jogador" style="width: 903px;">
+                        <img src="#{loginController.jogoModel.jogadores[1].urlAvatar}" alt="" height="80px;"/>
+                        <h:outputText
+                            value="#{loginController.jogoModel.jogadores[1].nome}" /><br />
+                        <p:separator />
+                        <p:commandButton value="Truco"  icon="ui-icon-arrowthick-1-nw" disabled="#{loginController.jogoModel.partida.truco}"  actionListener="#{jogoController.RealizadaTruco()}" process="@this"  ajax="false" update="mensagens"/>
+                        <p:commandButton value="Retruco"  icon="ui-icon-arrowthick-1-n" disabled="#{loginController.jogoModel.partida.retruco}" actionListener="#{jogoController.RealizadaReTruco()}" process="@this"  ajax="false" update="mensagens"/>
+                        <p:commandButton value="Vale 6" icon="ui-icon-plusthick" disabled="#{loginController.jogoModel.partida.vale6}" actionListener="#{jogoController.RealizadaValeSeis()}" process="@this"  ajax="false" update="mensagens"/>||
+                        <p:commandButton value="Envido" disabled="#{loginController.jogoModel.partida.envido}" actionListener="#{jogoController.RealizadaEnvido()}" process="@this"  ajax="false" update="mensagens"/>
+                        <p:commandButton value="Real envido" disabled="#{loginController.jogoModel.partida.realEnvido}" actionListener="#{jogoController.RealizadaRealEnvido()}" process="@this"  ajax="false" update="mensagens"/>
+                        <p:commandButton value="Falta envido" disabled="#{loginController.jogoModel.partida.faltaEnvido}" actionListener="#{jogoController.RealizadaFaltaEnvido()}" process="@this"  ajax="false" update="mensagens"/>||
+                        <p:commandButton value="Flor" disabled="#{loginController.jogoModel.partida.flor}" actionListener="#{jogoController.RealizadaFlor()}" process="@this"  ajax="false" update="mensagens"/>
+                    </p:panel>
+                    <div id="panelCartasJogador">
+                        <p:dataGrid id="cartasJogador" var="cartaModel" value="#{loginController.jogoModel.jogadores[1].mao}" columns="3" style="background-color: transparent !important; ">
+                            <p:column>
+                                <p:panel id="pnl" header="#{cartaModel.nome}" style="text-align:center">
+                                    <h:panelGrid columns="1" style="width:100%">
+                                        <p:graphicImage name="#{cartaModel.urlImagem}" />
+                                    </h:panelGrid>
+                                </p:panel>
+                                <p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar" stack=".ui-panel"/>
+                            </p:column>
+                        </p:dataGrid>
+                    </div>
+                 
+            </div>
+        </h:form>
+       
+    </h:body>
+</html>
+

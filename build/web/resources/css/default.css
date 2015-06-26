@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/05/2014, 20:21:25
+    Author     : DKO
+*/
+body{
+    background-image:  url(Images/fundoVerde.jpg );
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#lblNome{
+    color: red;
+}
+
+#divPrincipal{
+    border: 10px solid peru;
+    padding: 50px 50px 50px 50px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+     width: 430px;
+     margin: 5% auto;
+     background-color: #ffffff;
+}
+
+
+/// Pagina Game
+
+#panelJogadorP{
+    margin-bottom:20px;
+    width: 805px;
+    float: left;
+}
+#panelComputador{
+    float: right;
+    margin: -180px 10px 10px 10px;
+}
+
+#panelJogo{
+    height: 600px;
+    margin: 200px 0 0 100px;
+    padding: 200px 0 0 300px;
+    position: relative;
+    width: 740px;
+}
+
+#panelJogador{
+     position: relative;
+     float: left;
+     margin: 10px 10px 10px 10px;
+     margin: -200px 0 0 0;
+}
+
+#panelCartasJogador{
+    margin: -255px 0 0 920px;
+}
+
+#panelCartasComputador{
+    margin: -175px 0 0 -560px;
+}

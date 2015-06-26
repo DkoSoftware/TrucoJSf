@@ -1,0 +1,114 @@
+/*!
+ * jQuery UI Button 1.10.4
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/button/#theming
+ */
+jqueryUICSS .ui-button {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	line-height: normal;
+	margin-right: .1em;
+	cursor: pointer;
+	vertical-align: middle;
+	text-align: center;
+	overflow: visible; /* removes extra width in IE */
+}
+jqueryUICSS .ui-button,
+jqueryUICSS .ui-button:link,
+jqueryUICSS .ui-button:visited,
+jqueryUICSS .ui-button:hover,
+jqueryUICSS .ui-button:active {
+	text-decoration: none;
+}
+/* to make room for the icon, a width needs to be set here */
+jqueryUICSS .ui-button-icon-only {
+	width: 2.2em;
+}
+/* button elements seem to need a little more width */
+buttonjqueryUICSS .ui-button-icon-only {
+	width: 2.4em;
+}
+jqueryUICSS .ui-button-icons-only {
+	width: 3.4em;
+}
+buttonjqueryUICSS .ui-button-icons-only {
+	width: 3.7em;
+}
+
+/* button text element */
+jqueryUICSS .ui-button .ui-button-text {
+	display: block;
+	line-height: normal;
+}
+jqueryUICSS .ui-button-text-only .ui-button-text {
+	padding: .4em 1em;
+}
+jqueryUICSS .ui-button-icon-only .ui-button-text,
+jqueryUICSS .ui-button-icons-only .ui-button-text {
+	padding: .4em;
+	text-indent: -9999999px;
+}
+jqueryUICSS .ui-button-text-icon-primary .ui-button-text,
+jqueryUICSS .ui-button-text-icons .ui-button-text {
+	padding: .4em 1em .4em 2.1em;
+}
+jqueryUICSS .ui-button-text-icon-secondary .ui-button-text,
+jqueryUICSS .ui-button-text-icons .ui-button-text {
+	padding: .4em 2.1em .4em 1em;
+}
+jqueryUICSS .ui-button-text-icons .ui-button-text {
+	padding-left: 2.1em;
+	padding-right: 2.1em;
+}
+/* no icon support for input elements, provide padding by default */
+inputjqueryUICSS .ui-button {
+	padding: .4em 1em;
+}
+
+/* button icon element(s) */
+jqueryUICSS .ui-button-icon-only .ui-icon,
+jqueryUICSS .ui-button-text-icon-primary .ui-icon,
+jqueryUICSS .ui-button-text-icon-secondary .ui-icon,
+jqueryUICSS .ui-button-text-icons .ui-icon,
+jqueryUICSS .ui-button-icons-only .ui-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+}
+jqueryUICSS .ui-button-icon-only .ui-icon {
+	left: 50%;
+	margin-left: -8px;
+}
+jqueryUICSS .ui-button-text-icon-primary .ui-button-icon-primary,
+jqueryUICSS .ui-button-text-icons .ui-button-icon-primary,
+jqueryUICSS .ui-button-icons-only .ui-button-icon-primary {
+	left: .5em;
+}
+jqueryUICSS .ui-button-text-icon-secondary .ui-button-icon-secondary,
+jqueryUICSS .ui-button-text-icons .ui-button-icon-secondary,
+jqueryUICSS .ui-button-icons-only .ui-button-icon-secondary {
+	right: .5em;
+}
+
+/* button sets */
+jqueryUICSS .ui-buttonset {
+	margin-right: 7px;
+}
+jqueryUICSS .ui-buttonset .ui-button {
+	margin-left: 0;
+	margin-right: -.3em;
+}
+
+/* workarounds */
+/* reset extra padding in Firefox, see h5bp.com/l */
+inputjqueryUICSS .ui-button::-moz-focus-inner,
+buttonjqueryUICSS .ui-button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}

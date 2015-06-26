@@ -1,0 +1,5 @@
+/*! jQuery UI - v1.10.4 - 2014-05-18
+* http://jqueryui.com
+* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
+
+jqueryUICSS .ui-resizable{position:relative}jqueryUICSS .ui-resizable-handle{position:absolute;font-size:0.1px;display:block}jqueryUICSS .ui-resizable-disabled .ui-resizable-handle,jqueryUICSS .ui-resizable-autohide .ui-resizable-handle{display:none}jqueryUICSS .ui-resizable-n{cursor:n-resize;height:7px;width:100%;top:-5px;left:0}jqueryUICSS .ui-resizable-s{cursor:s-resize;height:7px;width:100%;bottom:-5px;left:0}jqueryUICSS .ui-resizable-e{cursor:e-resize;width:7px;right:-5px;top:0;height:100%}jqueryUICSS .ui-resizable-w{cursor:w-resize;width:7px;left:-5px;top:0;height:100%}jqueryUICSS .ui-resizable-se{cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}jqueryUICSS .ui-resizable-sw{cursor:sw-resize;width:9px;height:9px;left:-5px;bottom:-5px}jqueryUICSS .ui-resizable-nw{cursor:nw-resize;width:9px;height:9px;left:-5px;top:-5px}jqueryUICSS .ui-resizable-ne{cursor:ne-resize;width:9px;height:9px;right:-5px;top:-5px}

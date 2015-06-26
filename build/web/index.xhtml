@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="default.css" />  
+        <title>Truco Gaudério</title>
+    </h:head>
+    <h:body>
+        <div>
+            <center>
+                <img src="resources/Images/logo_trucopaulitsta_es.png" ></img>
+            <h:panelGrid>
+                <h:form id="formLogin">
+                    <p:growl id="msgs" showDetail="true"  autoUpdate="true"/>
+                    <p:panel header="Insira os dados do Jogador" style="margin-bottom:10px;">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="txtApelido" value="#{msg.nome_label}" />
+                            <p:inputText type="text" id="txtApelido" value="#{jogadorModel.nome}" required="true"></p:inputText>
+                            
+                            <p:outputLabel for="selSexo" value="#{msg.sexo_label}" />
+                            <p:selectOneMenu id="selSexo" value="#{jogadorModel.sexo}" style="width:100%" required="true">
+                                <f:selectItem itemLabel="#{msg.selecione_label}" itemValue="S" noSelectionOption="true" />
+                                 <f:selectItem itemLabel="#{msg.tipoSexoM_label}" itemValue="M" />
+                                <f:selectItem itemLabel="#{msg.tipoSexoF_label}" itemValue="F" />
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel for="selIdiomas" value="#{msg.idioma_label}" />
+                            <p:selectOneMenu id="selIdiomas" value="#{loginController.listaIdiomas}" style="width:100%" >
+                                <f:selectItem itemLabel="#{msg.selecione_label}"  noSelectionOption="true" />
+                                <f:selectItems value="#{loginController.bindIdiomas}" />
+                            </p:selectOneMenu>
+                            
+                        </h:panelGrid>
+                        <p:separator />
+                        <center>
+                            <p:commandButton value="#{msg.btnLoginValue}" update="msgs" action="#{ loginController.Login(jogadorModel)}" icon="ui-icon-check" ajax="false" process="@this"/>
+                            <p:commandButton type="reset" value="Limpar" update="formLogin" > </p:commandButton>    
+                        </center>
+                    </p:panel>
+                </h:form>
+            </h:panelGrid>
+        </center>
+        </div>
+    </h:body>
+</html>
+
